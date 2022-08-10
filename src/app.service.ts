@@ -1,8 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable, Inject, Res } from '@nestjs/common';
+import { Response } from 'express';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  redirect(@Res() response: Response): void {
+    response.status(HttpStatus.PERMANENT_REDIRECT).redirect('/cp');
   }
 }
