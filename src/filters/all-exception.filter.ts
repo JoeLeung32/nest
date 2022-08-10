@@ -31,7 +31,8 @@ export class AllExceptionFilter implements ExceptionFilter {
         httpAdapter.reply(ctx.getResponse(), responseBody, httpStatus);
         break;
       }
-      case pathname.search('/cp') === 0: {
+      case pathname.search('/cp') === 0:
+      case pathname.search('/assets') === 0: {
         responseBody = `Cannot ${ctx.getRequest().method} ${pathname}`;
         httpAdapter.reply(ctx.getResponse(), responseBody, httpStatus);
         break;
